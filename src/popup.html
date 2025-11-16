@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>Momo 🍑</h1>
+      <span class="version" id="version">v1.0.0</span>
+    </div>
+
+    <div class="status-section">
+      <div class="status-item">
+        <span class="status-icon" id="extension-status">✓</span>
+        <span class="status-text">Extension active</span>
+      </div>
+      <div class="status-item">
+        <span class="status-icon" id="jlpt-status">⏳</span>
+        <span class="status-text" id="jlpt-text">Loading JLPT data...</span>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <p>Hover over Japanese text to translate!</p>
+      <p class="tip">💡 Highlight text for precise selection</p>
+    </div>
+
+    <div class="actions">
+      <button id="help-button" class="help-button">Need Help?</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
