@@ -50,9 +50,12 @@ You can create a quick placeholder using an emoji:
 
 ## Current Status
 
-⚠️ **Icons not yet created** - Required before Chrome Web Store submission
+✅ **Icons created and ready for Chrome Web Store submission**
 
-Once icons are created, place them in this directory with the exact filenames:
-- icon16.png
-- icon48.png
-- icon128.png
+This directory contains:
+- **icon16.png** - 16x16 pixels (toolbar icon)
+- **icon48.png** - 48x48 pixels (extension management)
+- **icon128.png** - 128x128 pixels (Chrome Web Store listing)
+- **momo.png** - Source icon (94KB, for reference/future updates)
+
+All icons feature the peach theme (🍑) with purple/blue gradient matching the extension's visual design.

@@ -15,17 +15,33 @@
 ## Project Structure
 
 ```
-.
-├── CLAUDE.md          # This file - project instructions for Claude
-├── .claude/           # Claude Code configuration (auto-generated)
-│   ├── agents/        # Project-specific agent overrides
-│   └── commands/      # Custom slash commands for Claude Code
-├── claude/            # Claude Code project organization
-│   ├── agents/        # Custom agents for specialized tasks
-│   ├── docs/          # Project documentation
-│   ├── plans/         # Project plans and architectural documents
-│   └── tickets/       # Task tickets and issues
-└── [your project files and directories]
+/momo/                 # Repository root
+├── .gitignore         # Git ignore rules
+├── LICENSE            # MIT License
+├── README.md          # Main documentation (for GitHub)
+├── package.sh         # Automated packaging script for Chrome Web Store
+├── assets/            # Development assets (not included in ZIP)
+│   └── screenshots/   # Chrome Web Store screenshots
+├── docs/              # GitHub Pages documentation
+│   └── privacy-policy.html  # Hosted privacy policy
+└── src/               # Extension source code
+    ├── CLAUDE.md      # This file - project instructions for Claude
+    ├── .claude/       # Claude Code configuration
+    │   ├── agents/    # Project-specific agents
+    │   ├── commands/  # Custom slash commands
+    │   ├── hooks/     # Git hooks and workflow automation
+    │   └── settings.json  # Shared Claude settings
+    ├── manifest.json  # Chrome extension manifest (v3)
+    ├── background.js  # Service worker
+    ├── content.js     # Content script
+    ├── kuromoji.js    # Japanese tokenizer library
+    ├── popup.html/css/js  # Extension popup
+    ├── welcome.html   # First-install onboarding
+    ├── privacy-policy.html  # Privacy policy (also in extension)
+    ├── tooltip.css    # Translation tooltip styles
+    ├── icons/         # Extension icons
+    ├── data/          # JLPT lookup data (13,000+ words)
+    └── dict/          # Kuromoji dictionary files (~15MB)
 ```
 
 ## Development Guidelines
@@ -131,11 +147,11 @@ Closes #XXX (if applicable)
 
 ## Agents
 
-See @claude/agents/README.md for available agents and their purposes
+See .claude/agents/README.md for available agents and their purposes
 
 ## Agent Orchestration
 
-After adding the agents you want to in `./claude/agents` folder, setup the workflow for Claude code to follow
+After adding the agents you want to in `./.claude/agents` folder, setup the workflow for Claude code to follow
 
 ## Custom Commands
 
@@ -143,27 +159,21 @@ Custom slash commands are available in `.claude/commands/`:
 - **/update-claude-md** - Automatically updates this file with project-specific information
 - See `.claude/commands/README.md` for creating your own commands
 
-## Tickets
+## GitHub Repository
 
-See @claude/tickets/README.md for ticket format and management approach
+- **Repository**: https://github.com/vichannnnn/momo
+- **License**: MIT
+- **Privacy Policy**: https://vichannnnn.github.io/momo/privacy-policy.html
+- **Issues**: https://github.com/vichannnnn/momo/issues
+- **Discussions**: https://github.com/vichannnnn/momo/discussions
 
-### Ticket Management
-- **Ticket List**: Maintain @claude/tickets/ticket-list.md as a centralized index of all tickets
-- **Update ticket-list.md** whenever you:
-  - Create a new ticket (add to appropriate priority section)
-  - Change ticket status (update emoji and move if completed)
-  - Complete a ticket (move to completed section with date)
-- **Status Emojis**: 🔴 Todo | 🟡 In Progress | 🟢 Done | 🔵 Blocked | ⚫ Cancelled
+## Contributing
 
-## Plans
-
-See @claude/plans/README.md for planning documents and architectural decisions
-
-## Development Context
-
-- See @claude/docs/ROADMAP.md for current status and next steps
-- Task-based development workflow with tickets in `claude/tickets` directory
-- Use `claude/plans` directory for architectural decisions and implementation roadmaps
+This is an open-source project! Contributions welcome:
+- Report bugs via GitHub Issues
+- Suggest features via GitHub Discussions
+- Submit Pull Requests following the PR guidelines above
+- See root README.md for development setup
 
 ## Important Instructions
 
@@ -171,10 +181,9 @@ Before starting any task:
 
 1. **Confirm understanding**: Always confirm you understand the request and outline your plan before proceeding
 2. **Ask clarifying questions**: Never make assumptions - ask questions when requirements are unclear
-3. **Create planning documents**: Before implementing any code or features, create a markdown file documenting the approach
-4. **Use plans directory**: When discussing ideas or next steps, create timestamped files in the plans directory (e.g., `claude/plans/next-steps-YYYY-MM-DD-HH-MM-SS.md`) to maintain a record of decisions
-5. **No code comments**: Never add comments to any code you write - code should be self-documenting
-6. **Maintain ticket list**: Always update @claude/tickets/ticket-list.md when creating, updating, or completing tickets to maintain a clear project overview
+3. **No code comments**: Never add comments to any code you write - code should be self-documenting
+4. **Test thoroughly**: Load extension in Chrome via "Load unpacked" and test on Japanese websites
+5. **Follow commit conventions**: Use conventional commit format (see above)
 
 ## Publishing to Chrome Web Store
 
@@ -188,32 +197,29 @@ Before starting any task:
 
 Before publishing, complete these tasks:
 
-- [ ] **Create extension icons** (see `icons/README.md`)
-  - icon16.png (16x16 pixels)
-  - icon48.png (48x48 pixels)
-  - icon128.png (128x128 pixels - actual icon 96x96 with 16px padding)
+- [x] **Create extension icons** ✓ COMPLETED
+  - icon16.png, icon48.png, icon128.png all created
   - Design: Peach theme (🍑) with purple/blue gradient
+  - Located in `src/icons/`
 
-- [ ] **Take screenshots** (5 images recommended)
-  - Dimensions: 1280x800 pixels (or 640x400 minimum)
-  - Format: PNG
-  - Content to capture:
-    1. Hovering over Japanese text with tooltip showing
-    2. JLPT badge display (N5-N1 examples)
-    3. Manual text selection feature
-    4. Example on popular Japanese website (NHK, Wikipedia)
-    5. Welcome page or popup interface
+- [x] **Take screenshots** ✓ COMPLETED (2 screenshots)
+  - Stored in `/assets/screenshots/`
+  - Files:
+    1. `01-hover-tooltip.png` - Hovering over Japanese text with tooltip
+    2. `02-jlpt-badge.png` - JLPT badge display
+  - Dimensions: Check actual size, Chrome Web Store recommends 1280x800px
+  - Note: Minimum 1 screenshot required, 2-5 recommended for best presentation
 
-- [ ] **Create promotional images**
-  - Small tile: 440x280 pixels (required)
+- [x] **Host privacy policy** ✓ COMPLETED
+  - Hosted on GitHub Pages: https://vichannnnn.github.io/momo/privacy-policy.html
+  - Contact email: violet@himaa.me
+  - Last updated: November 17, 2025
+
+- [ ] **Create promotional images** (OPTIONAL)
+  - Small tile: 440x280 pixels (required for featured placement)
   - Marquee: 1400x560 pixels (optional)
   - Use saturated colors, minimal text
   - Should work when shrunk to half size
-
-- [ ] **Host privacy policy**
-  - Upload `privacy-policy.html` to web hosting (GitHub Pages, etc.)
-  - Update contact email in privacy-policy.html before hosting
-  - Get public URL for Chrome Web Store listing
 
 - [ ] **Register Chrome Web Store developer account**
   - Cost: **$5 USD one-time fee** (not per extension!)
@@ -223,35 +229,50 @@ Before publishing, complete these tasks:
 
 ### Packaging the Extension
 
+**Automated Method (Recommended):**
 ```bash
-# Navigate to extension directory
-cd /Users/hima/Desktop/extension/extension
+# From repository root, run the packaging script
+./package.sh
+```
+
+The script automatically creates `momo-extension.zip` with only the necessary files.
+
+**Manual Method:**
+```bash
+# Navigate to src directory
+cd /Users/hima/Desktop/momo/src
 
 # Create ZIP file (exclude development files)
-zip -r momo.zip . -x \
+zip -r ../momo-extension.zip . -x \
   "*.git*" \
   "*.DS_Store" \
   ".claude/*" \
-  "claude/*" \
   "README.md" \
   "CLAUDE.md" \
-  "privacy-policy.html" \
   "icons/README.md"
 ```
 
-**What gets included in the ZIP:**
+**What gets INCLUDED in the ZIP:**
 - manifest.json
 - background.js
 - content.js
 - kuromoji.js
+- popup.html, popup.css, popup.js
 - tooltip.css
 - welcome.html
-- popup.html, popup.css, popup.js
-- icons/ (all PNG files)
-- dict/ (Kuromoji dictionaries ~15.2MB)
+- privacy-policy.html (for offline viewing)
+- icons/ (icon16.png, icon48.png, icon128.png)
+- dict/ (Kuromoji dictionaries ~15.3MB)
 - data/jlpt-lookup.json (261KB)
 
-**Total extension size:** ~16MB
+**What gets EXCLUDED from the ZIP:**
+- .claude/ directory (Claude Code configuration)
+- README.md (development documentation)
+- CLAUDE.md (this file)
+- icons/README.md (icon documentation)
+- icons/momo.png (source icon, not needed in extension)
+
+**Total extension size:** ~16MB (well within Chrome's 20MB limit)
 
 ### Publishing Steps
 
@@ -313,7 +334,7 @@ zip -r momo.zip . -x \
    - **Language**: English
 
    **Privacy Tab:**
-   - **Privacy Policy URL**: [Your hosted privacy-policy.html URL]
+   - **Privacy Policy URL**: https://vichannnnn.github.io/momo/privacy-policy.html
    - **Justify Permissions**:
      - `activeTab`: Required to read Japanese text on webpages you're viewing
      - `storage`: Required to cache translations locally for faster performance
