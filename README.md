@@ -33,7 +33,7 @@ Learning Japanese through immersion is one of the most effective methods, but co
 
 ```bash
 # Clone the repository
-git clone https://github.com/[username]/momo.git
+git clone https://github.com/vichannnnn/momo.git
 cd momo
 
 # The extension source is in /src
@@ -133,7 +133,7 @@ Contributions are welcome! Here's how you can help:
    - Name: "Momo - Japanese Learning Assistant"
    - Description: See existing src/README.md for text
    - Screenshots: Capture tooltips, JLPT badges, popup
-   - Privacy policy URL: `https://[username].github.io/momo/privacy-policy.html`
+   - Privacy policy URL: `https://vichannnnn.github.io/momo/privacy-policy.html`
 6. Submit for review (typically 1-3 business days)
 
 ### Updating the Extension
@@ -151,7 +151,7 @@ Momo respects your privacy:
 - **External API**: Translations are fetched from Jisho.org (see their privacy policy)
 - **No accounts**: No sign-up or user accounts required
 
-Read the full [Privacy Policy](https://[username].github.io/momo/privacy-policy.html)
+Read the full [Privacy Policy](https://vichannnnn.github.io/momo/privacy-policy.html)
 
 ## License
 
@@ -165,8 +165,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/[username]/momo/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/[username]/momo/discussions)
+- **Issues**: [GitHub Issues](https://github.com/vichannnnn/momo/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/vichannnnn/momo/discussions)
 
 ---
 
